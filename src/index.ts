@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/test', (req, res) => {
-  res.send('test')
+  res.send('tests')
 })
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
