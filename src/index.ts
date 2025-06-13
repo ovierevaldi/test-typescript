@@ -12,12 +12,14 @@ app.get('/', (req, res) => {
   res.send('Hello from Express + TypeScript + Vercel + ESM!')
 })
 
-app.get('/test', (req, res) => {
-  res.send('tests')
+app.get('/test', async (req, res) => {
+  const users = await AppDataSource.getRepository(User).find();
+  res.send(users)
 })
 
 
-AppDataSource.initialize().then(async () => {
+AppDataSource.initialize()
+.then(async () => {
 
     console.log("Inserting a new user into the database...")
     const user = new User()
@@ -33,7 +35,8 @@ AppDataSource.initialize().then(async () => {
 
     console.log("Here you can setup and run express / fastify / any other framework.")
 
-}).catch(error => console.log(error));
+})
+.catch(error => console.log(error));
 
 const PORT = process.env.PORT || 3000;
 
