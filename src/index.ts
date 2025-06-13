@@ -3,8 +3,8 @@ import 'dotenv/config'
 import express from 'express'
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import 'reflect-metadata'
-import { AppDataSource } from './data-source.ts';
-import { User } from './entity/User.ts';
+import { AppDataSource } from './data-source.js';
+import { User } from './entity/User.js';
 
 const app = express()
 
